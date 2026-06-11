@@ -1,0 +1,9 @@
+cache:
+    api2:
+        arduino:
+            cc/boards/v1/boards?vid-pid=0x2a03-0x0042:
+                data: '[{"name":"Arduino Mega or Mega 2560","fqbn":"arduino:avr:mega"}]'
+                ts: 2026-06-11T21:54:15.270282189+02:00
+installation:
+    id: 5907a351-0d7d-4c80-a5b8-19f7982d1391
+    secret: 86a4b58e-0fd9-4919-acce-a8ce94c2db6c

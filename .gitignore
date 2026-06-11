@@ -1,0 +1,8 @@
+build/
+.arduino15/
+.direnv/
+result
+*.o
+*.elf
+*.hex
+*.bin

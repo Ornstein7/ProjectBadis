@@ -1,0 +1,11 @@
+build_cache:
+    compilation_count_since_last_purge: 2
+cache:
+    api2:
+        arduino:
+            cc/boards/v1/boards?vid-pid=0x2a03-0x0042:
+                data: '[{"name":"Arduino Mega or Mega 2560","fqbn":"arduino:avr:mega"}]'
+                ts: 2026-06-11T21:05:47.587654259+02:00
+installation:
+    id: 56037e09-2b57-4ea2-8a36-d42327845dee
+    secret: 7e93bbf4-56c8-40ea-8b27-9c663c4bc567
