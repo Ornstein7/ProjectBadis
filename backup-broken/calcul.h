@@ -1,3 +1,4 @@
+cat > include/calcul.h <<'EOF'
 #ifndef CALCUL_H
 #define CALCUL_H
 
@@ -36,3 +37,4 @@ int app_request_temperature(AppContext *ctx);
 int app_set_temperature_threshold(AppContext *ctx, double seuil);
 
 #endif
+EOF

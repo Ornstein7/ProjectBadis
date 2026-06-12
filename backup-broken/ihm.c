@@ -1,3 +1,4 @@
+cat > src/ihm.c <<'EOF'
 #include "ihm.h"
 #include "calcul.h"
 
@@ -259,7 +260,7 @@ static void on_activate(GtkApplication *app, gpointer user_data) {
 void ihm_run(int argc, char **argv, const char *port, int baud) {
     (void)argc;
 
-    GtkApplication *app = gtk_application_new("fr.projetbadis.gui", G_APPLICATION_DEFAULT_FLAGS);
+    GtkApplication *app = gtk_application_new("fr.projetbadis.gui", G_APPLICATION_FLAGS_NONE);
 
     LaunchConfig config = {
         .port = port,
@@ -275,3 +276,4 @@ void ihm_run(int argc, char **argv, const char *port, int baud) {
 
     g_object_unref(app);
 }
+EOF

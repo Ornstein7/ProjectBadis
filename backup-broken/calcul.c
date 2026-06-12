@@ -1,3 +1,4 @@
+cat > src/calcul.c <<'EOF'
 #define _DEFAULT_SOURCE
 
 #include "calcul.h"
@@ -620,3 +621,4 @@ int app_set_temperature_threshold(AppContext *ctx, double seuil) {
         .value = seuil
     });
 }
+EOF

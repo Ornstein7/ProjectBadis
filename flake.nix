@@ -7,33 +7,42 @@
 
   outputs = { self, nixpkgs }:
     let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+
+      forAllSystems = f:
+        nixpkgs.lib.genAttrs systems
+          (system: f nixpkgs.legacyPackages.${system});
     in {
-      devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; [
-          arduino-cli
-          avrdude
+      devShells = forAllSystems (pkgs: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            arduino-cli
+            avrdude
 
-          gcc
-          gnumake
-          pkg-config
-          gtk4
-          glib
+            gcc
+            gnumake
+            pkg-config
+            gtk4
+            glib
 
-          just
-          tio
-        ];
+            just
+            tio
+          ];
 
-        shellHook = ''
-          export ARDUINO_DIRECTORIES_DATA="$PWD/.arduino15"
-          export ARDUINO_DIRECTORIES_USER="$PWD/arduino"
-          export ARDUINO_DIRECTORIES_DOWNLOADS="$PWD/.arduino15/staging"
+          shellHook = ''
+            export ARDUINO_DIRECTORIES_DATA="$PWD/.arduino15"
+            export ARDUINO_DIRECTORIES_USER="$PWD/arduino"
+            export ARDUINO_DIRECTORIES_DOWNLOADS="$PWD/.arduino15/staging"
 
-          echo "ProjetBadis GTK/Arduino dev shell ready"
-          echo "Run: just build"
-          echo "Run: just gui"
-        '';
-      };
+            echo "ProjetBadis GTK/Arduino dev shell ready"
+            echo "Run: make"
+            echo "Run: make run"
+            echo "Run: just arduino-init"
+          '';
+        };
+      });
     };
 }
